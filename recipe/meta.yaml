@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/openinference_instrumentation_langchain-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/openinference_instrumentation_langchain-{{ version }}.tar.gz
   sha256: f6c10079c91f810cff39ff24c278e41d16df0c3706b230e1859f46cad20f8e0b
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8,<3.12
+    - python {{ python_min }}
     - hatchling
     - pip
   run:
-    - python >=3.8,<3.12
+    - python >={{ python_min }},<3.12
     - opentelemetry-api
     - opentelemetry-instrumentation
     - opentelemetry-semantic-conventions
@@ -29,6 +29,8 @@ requirements:
     - wrapt
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - openinference.instrumentation.langchain
 
