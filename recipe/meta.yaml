@@ -1,5 +1,5 @@
 {% set name = "openinference-instrumentation-langchain" %}
-{% set version = "0.1.55" %}
+{% set version = "0.1.56" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/openinference_instrumentation_langchain-{{ version }}.tar.gz
-  sha256: 57a2875ca845950f944700d9352efb080c8b20049253408e7739d960c43f34e8
+  sha256: 19fcf552096c53e1b289d0225a372890ca909ef79fba471a395220912fc5e0e7
 
 build:
   noarch: python
